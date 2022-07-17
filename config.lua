@@ -17,6 +17,7 @@ vim.opt.relativenumber = true
 -- lvim.use_icons = false
 
 lvim.lsp.automatic_servers_installation = true
+lvim.lsp.diagnostics.virtual_text = false
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
@@ -47,6 +48,8 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 
+lvim.builtin.which_key.mappings["a"] = { "<cmd>lua require('spectre').open()<CR>", "Projects" }
+
 lvim.builtin.which_key.mappings["d"] = {
   name = "+Debug",
   d = { "<cmd>call vimspector#Launch()<CR>", "Launch" },
@@ -70,7 +73,7 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.terminal.direction = "vertical"
-lvim.builtin.terminal.size = 55
+lvim.builtin.terminal.size = 65
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
@@ -275,10 +278,10 @@ lvim.plugins = {
     "felipec/vim-sanegx",
     event = "BufRead",
   },
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    event = "BufRead",
-  },
+  -- {
+  --   "JoosepAlviste/nvim-ts-context-commentstring",
+  --   event = "BufRead",
+  -- },
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufRead",
